@@ -12,4 +12,26 @@ which(agricultureLogical)
 
 What are the first 3 values that result?
 
+```
+  fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv"
+  dat <- tbl_df(read.csv(fileURL, header=TRUE))
+  dat2 <- datdat %>%         
+                mutate(id = seq(1:6496), result = (ACR %in% 3 & AGS %in% 6)) %>%        
+                select(id,ACR,AGS,result) %>%        
+                filter(result == T) %>%        
+                head(3)
+```
 
+ A tibble: 3 x 4                
+id   ACR   AGS result                
+<int> <int> <int> <lgl>                 
+1   125     3     6 T                     
+2   238     3     6 T                     
+3   262     3     6 T 
+                
+```                
+  agriculturalLogical <- dat2$ACR == 3 & dat2$AGS == 6
+  which(agriculturalLogical)[1:3]                
+```
+
+[1] 125 238 262
